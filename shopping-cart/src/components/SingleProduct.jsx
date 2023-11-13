@@ -1,8 +1,11 @@
-import React from 'react'
+/* eslint-disable react/prop-types */
 
-const SingleProduct = () => {
+
+const SingleProduct = ({prod}) => {
   return (
     <div>
+      {prod.name}
+      
       
     </div>
   )

@@ -2,8 +2,11 @@ import { createContext, useContext, useReducer } from "react";
 import faker from "faker";
 import { cartReducer } from "./CartReducer";
 
-const Cart = createContext();
+const Cart = createContext(); // retruns obkject with two components Provider and Consumer
 
+//In React, children is a special prop that represents the content between 
+//the opening and closing tags of a component. 
+//It allows you to compose components and pass content into them.
 // eslint-disable-next-line react/prop-types
 const Context = ({ children }) => {
   const products = [...Array(20)].map(() => ({
@@ -16,8 +19,8 @@ const Context = ({ children }) => {
     ratings: faker.random.arrayElement([1, 2, 3, 4, 5]),
   }));
 
-  const [state, dispatch] = useReducer(cartReducer, {
-    products: products,
+  const [state, dispatch] = useReducer(cartReducer, { // using use reducer to manage the state
+  products: products, //inital state products and cart is empty
     cart: [],
   });
 
@@ -30,9 +33,9 @@ const Context = ({ children }) => {
 };
 
 export default Context;
-
+//use context is used to return the current context value
 export const CartState = () => {
-  return useContext(Cart);
+  return useContext(Cart); //returns a object with a state and dispatch property
 };
 
 
