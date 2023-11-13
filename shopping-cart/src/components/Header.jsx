@@ -23,7 +23,7 @@ const Header = () => {
         </Navbar.Text>
 
         
-        <Dropdown alignRight>
+        <Dropdown>
             <Dropdown.Toggle variant="success" id="dropdown-basic">
                 <BsFillCartFill color='white' fontSize="20fpx" />
             </Dropdown.Toggle>
