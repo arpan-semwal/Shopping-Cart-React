@@ -1,5 +1,6 @@
 .home {
     display: flex;
+    position: relative;
 }
 
 .productContainer {
@@ -27,4 +28,9 @@
 
 .title {
     font-size: 30px;
+}
+
+.products {
+    width: 30%;
+    margin: 10px;
 }

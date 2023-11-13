@@ -2,18 +2,21 @@ import { createContext, useContext, useReducer } from "react";
 import faker from "faker";
 import { cartReducer } from "./CartReducer";
 
-const Cart = createContext(); // retruns obkject with two components Provider and Consumer
-
+const Cart = createContext();
+   // retruns obkject with two components Provider and Consumer
+faker.seed(99);
 //In React, children is a special prop that represents the content between 
 //the opening and closing tags of a component. 
 //It allows you to compose components and pass content into them.
 // eslint-disable-next-line react/prop-types
 const Context = ({ children }) => {
+
+  
   const products = [...Array(20)].map(() => ({
     id: faker.datatype.uuid(),
     name: faker.commerce.productName(),
     price: faker.commerce.price(),
-    image: faker.random.image(),
+    image: `https://images.pexels.com/photos/4158/apple-iphone-smartphone-desk.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1`,
     inStock: faker.random.arrayElement([0, 3, 5, 6, 7]),
     fastDelivery: faker.datatype.boolean(),
     ratings: faker.random.arrayElement([1, 2, 3, 4, 5]),
