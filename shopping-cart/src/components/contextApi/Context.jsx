@@ -3,7 +3,7 @@ import faker from "faker";
 import { cartReducer } from "./CartReducer";
 
 const Cart = createContext();
-   // retruns obkject with two components Provider and Consumer
+// retruns object with two components Provider and Consumer
 faker.seed(99);
 //In React, children is a special prop that represents the content between 
 //the opening and closing tags of a component. 

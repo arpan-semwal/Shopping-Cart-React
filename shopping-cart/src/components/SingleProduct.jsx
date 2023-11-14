@@ -6,6 +6,7 @@ import {CartState} from './contextApi/Context';
 const SingleProduct = ({prod}) => {
 
   const {state:{cart} , dispatch}  = CartState();
+  console.log(cart);
 
   
   return (
@@ -24,24 +25,29 @@ const SingleProduct = ({prod}) => {
 
           <Rating rating={prod.ratings}/>
         </Card.Subtitle>
-
         {
-          cart.some(p=>p.id == prod.id) ? (
-            <Button variant="danger">Remove from cart</Button>
+          cart.some(p=>p.id == prod.id) ? ( //if the prodcut id is equal to the current product then we print remove from cart
+            <Button 
+            onClick={() => {
+              dispatch({
+                type:"REMOVE_FROM_CART",
+                payload:prod,
+              })
+            }}
+            variant="danger">Remove from cart</Button>
           ) : (
-          <Button disabled={!prod.inStock}>
+          <Button onClick={() => {
+            dispatch({
+              type: "ADD_TO_CART",
+              payload:prod,
+            })
+          }} disabled={!prod.inStock}>
           {!prod.inStock ? "Out of Stock" : "Add to Cart"}
         </Button>
           ) //check is this particular thing is present inside the array or not
         }
-       
-        
-        
       </Card.Body>
     </Card>
-      
-      
-      
     </div>
   )
 }
