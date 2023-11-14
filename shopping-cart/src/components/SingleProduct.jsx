@@ -2,7 +2,12 @@
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Rating from "../components/Rating";
+import {CartState} from './contextApi/Context';
 const SingleProduct = ({prod}) => {
+
+  const {state:{cart} , dispatch}  = CartState();
+
+  
   return (
     <div className="products">
       <Card style={{ width: '18rem' }}>
@@ -19,11 +24,19 @@ const SingleProduct = ({prod}) => {
 
           <Rating rating={prod.ratings}/>
         </Card.Subtitle>
-       
-        <Button variant="danger">Remove from cart</Button>
-        <Button disabled={!prod.inStock}>
+
+        {
+          cart.some(p=>p.id == prod.id) ? (
+            <Button variant="danger">Remove from cart</Button>
+          ) : (
+          <Button disabled={!prod.inStock}>
           {!prod.inStock ? "Out of Stock" : "Add to Cart"}
         </Button>
+          ) //check is this particular thing is present inside the array or not
+        }
+       
+        
+        
       </Card.Body>
     </Card>
       
