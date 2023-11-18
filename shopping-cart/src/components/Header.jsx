@@ -7,6 +7,7 @@ import { BsFillCartFill } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 import { CartState } from './contextApi/Context';
 import Badge from 'react-bootstrap/Badge';
+import Button from "react-bootstrap/esm/Button";
 
 const Header = () => {
   const { state: { cart } , dispatch } = CartState();
@@ -41,7 +42,7 @@ const Header = () => {
               <Badge>{cart.length}</Badge>
             </Dropdown.Toggle>
 
-            <Dropdown.Menu style={{  minWidth: 370, maxHeight: '60vh', overflowY: 'auto' }}>
+            <Dropdown.Menu style={{}} >
               {cart.length > 0 ? (
                 cart.map((prod) => (
                   <span className='cartItem' key={prod.id}>
@@ -58,14 +59,18 @@ const Header = () => {
                     <AiFillDelete  
                       fontSize="20px"
                       style={{cursor:"pointer"}}
-                    
-                       
                         onClick={() => removeFromCart(prod)} 
                     />
-                    
+
+                  <Link to="/cart">
+                    <Button style={{width:"95%" , margin:" 0 10px"}}>
+                      Go To Cart
+                    </Button>
+                  </Link>
+
+
                   </span>
-                ))
-              ) : (
+                ))) : (
                 <span style={{ padding: 10 }}>Cart is Empty!</span>
               )}
             </Dropdown.Menu>
