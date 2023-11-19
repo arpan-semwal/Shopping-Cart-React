@@ -15,3 +15,7 @@ export const cartReducer = (state , action) => { // takes 2 parameter state : is
             return state;
     }
 };
+
+export const productReducer = (state , action) => {
+   
+}

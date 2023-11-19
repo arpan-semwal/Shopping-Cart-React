@@ -1,6 +1,6 @@
 import { createContext, useContext, useReducer } from "react";
 import faker from "faker";
-import { cartReducer } from "./CartReducer";
+import { cartReducer , productReducer } from "./CartReducer";
 
 const Cart = createContext();
 // retruns object with two components Provider and Consumer
@@ -27,9 +27,17 @@ const Context = ({ children }) => {
     cart: [],
   });
 
+
+  const [productState , productDispatch] = useReducer(productReducer , {
+      byStock:false,
+      byFastDelivery:false,
+      byRating:0,
+      searchQuery:"",
+  })
+
   return (
     // Corrected "Provider" and passed the correct value
-    <Cart.Provider value={{ state, dispatch }}> 
+    <Cart.Provider value={{ state, dispatch  , productDispatch , productState}}> 
       {children}
     </Cart.Provider>
   );
