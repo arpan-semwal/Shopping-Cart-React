@@ -1,6 +1,7 @@
 import Filters from "./Filters";
 import SingleProduct from "./SingleProduct";
 import { CartState } from "./contextApi/Context"
+import Header from "./Header";
 import "./style.css";
 
 const Home = () => {
@@ -45,13 +46,15 @@ const Home = () => {
 
 
   return (
-    <div className="home">
-      <Filters/>
-      {/* mapping over all the products */}
-      <div className="productContainer">
-        {transformProducts().map((prod) => {
-         return <SingleProduct prod = {prod} key={prod.id}/>
-        })}
+    <div>
+      <Header /> {/* Render the Header component */}
+      <div className="home">
+        <Filters />
+        <div className="productContainer">
+          {transformProducts().map((prod) => (
+            <SingleProduct prod={prod} key={prod.id} />
+          ))}
+        </div>
       </div>
     </div>
   )

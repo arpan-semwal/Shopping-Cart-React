@@ -1,14 +1,16 @@
 .home {
     display: flex;
-    position: relative;
 }
 
 .productContainer {
     display: flex;
-    width: 78%;
+    width: 70%;
     padding: 20px;
     flex-wrap: wrap;
     justify-content: space-around;
+    overflow-y: auto;
+    margin-left: 30%;
+    padding-top: 80px;
 }
 
 .filters {
@@ -16,9 +18,19 @@
     color: white;
     padding: 20px;
     width: 30%;
+    /* Adjust the width of the sidebar */
+    position: fixed;
+    /* Set the sidebar to a fixed position */
+    top: 0;
+    left: 0;
+    height: 100vh;
+    /* Extend the sidebar to the full height of the viewport */
+    overflow-y: auto;
+    /* Enable vertical scrolling in the sidebar */
+    z-index: 1;
+    /* Ensure the sidebar is above other content */
     display: flex;
     flex-direction: column;
-    height: 100vh;
 }
 
 .filters>span {
@@ -52,28 +64,4 @@
 
 .summary {
     width: 30%;
-}
-
-@media(max-width:771px) {
-    .filters {
-        width: 40%;
-        padding: 10px;
-        margin: 5px;
-    }
-    .filters>span {
-        font-size: 10px;
-    }
-    .title {
-        font-size: 18px !important;
-    }
-    .productContainer {
-        width: 58%;
-        padding: 0;
-    }
-    .search {
-        display: none !important;
-    }
-    .products {
-        width: 100%;
-    }
 }

@@ -10,6 +10,7 @@ const Filters = () => {
    
 
   return (
+    
     <div className="filters">
       <span className="title">Filter Products</span>
       <span>
