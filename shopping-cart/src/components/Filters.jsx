@@ -3,11 +3,7 @@ import Button from 'react-bootstrap/esm/Button';
 import Rating from './Rating';
 import { CartState } from './contextApi/Context';
 const Filters = () => {
-
-
- 
-
-
+  
   const {productState:{byStock , byFastDelivery , sort , byRating , searchQuery } , productDispatch} =  CartState ();
 
   console.log(byStock , byFastDelivery , sort , byRating , searchQuery);
