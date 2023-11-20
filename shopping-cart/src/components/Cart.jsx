@@ -81,7 +81,6 @@ const Cart = () => {
             </Col>
           </Row>
           </ListGroup.Item>
-         
         ))
        }
         </ListGroup>

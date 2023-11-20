@@ -10,7 +10,7 @@ import Badge from 'react-bootstrap/Badge';
 import Button from "react-bootstrap/esm/Button";
 
 const Header = () => {
-  const { state: { cart } , dispatch } = CartState();
+  const { state: { cart } , dispatch  , productDispatch , searchQuery} = CartState();
 
   const removeFromCart = (prod) => {
     dispatch({
@@ -33,6 +33,12 @@ const Header = () => {
               style={{ width: 500 }}
               className='m-auto'
               aria-describedby="basic-addon1"
+              onChange={(e) => {
+                productDispatch({
+                  type:"FILTER_BY_SEARCH",
+                  payload:e.target.value,
+                })
+              }}
             />
           </Navbar.Text>
           
