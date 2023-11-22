@@ -47,7 +47,7 @@ const Home = () => {
 
   return (
     <div>
-      <Header /> {/* Render the Header component */}
+     
       <div className="home">
         <Filters />
         <div className="productContainer">
