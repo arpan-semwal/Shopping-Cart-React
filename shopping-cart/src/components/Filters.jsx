@@ -2,6 +2,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/esm/Button';
 import Rating from './Rating';
 import { CartState } from './contextApi/Context';
+// eslint-disable-next-line react/prop-types
 const Filters = ({isOpen}) => {
   
   const {productState:{byStock , byFastDelivery , sort , byRating , searchQuery } , productDispatch} =  CartState ();
@@ -12,7 +13,7 @@ const Filters = ({isOpen}) => {
   return (
     
     
-    <div className={`filters ${isOpen ?"open" : ""}`}>
+    <div className={`filters ${isOpen ? 'open' : 'closed'}`}>
       <span className="title">Filter Products</span>
       <span>
         <Form.Check
