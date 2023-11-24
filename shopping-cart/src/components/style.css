@@ -9,7 +9,7 @@
     flex-wrap: wrap;
     justify-content: space-around;
     overflow-y: auto;
-    margin-left: auto;
+    /* margin-left: auto; */
     padding-top: 80px;
 }
 
@@ -26,10 +26,19 @@
     /* Extend the sidebar to the full height of the viewport */
     overflow-y: auto;
     /* Enable vertical scrolling in the sidebar */
-    z-index: 1;
+    z-index: 2;
     /* Ensure the sidebar is above other content */
     display: flex;
     flex-direction: column;
+    transition: transform 0.6s ease-in-out;
+    /* Apply transition to transform property */
+    transform: translateX(-100%);
+    /* Initially move sidebar off-screen */
+}
+
+.filters.open {
+    transform: translateX(0);
+    /* Move sidebar in when open */
 }
 
 .filters>span {
@@ -67,27 +76,54 @@
     width: 30%;
 }
 
-.productContainer {
-    /* ... (existing styles) ... */
-    padding-top: 50px;
-    /* Add padding to the top */
+
+/* Media queries for responsiveness */
+
+@media (min-width: 992px) {
+    .productContainer {
+        width: 98%;
+        /* Reduce width to display more products */
+    }
+    .products {
+        width: 19%;
+        /* Adjust width to show more products */
+        margin: 20px;
+        /* Adjust margin between products */
+    }
+    .products .card {
+        width: 100%;
+    }
+}
+
+@media (min-width: 992px) {
+    .filters {
+        /* Keep the sidebar open by default on larger screens */
+        transform: translateX(0);
+    }
 }
 
 
-/* Media queries for responsiveness */
+/* For screens smaller than 992px */
+
+@media (max-width: 992px) {
+    .filters {
+        transform: translateX(-100%);
+        /* Initially move sidebar off-screen on smaller screens */
+    }
+}
 
 @media (max-width: 992px) {
     .productContainer {
         width: 100%;
-        margin-left: 0;
         padding-top: 45px;
-        /* Adjust or remove top padding for smaller screens */
-        justify-content: center;
+        justify-content: flex-start;
+        /* Align products to the start */
     }
     .products {
-        width: 45%;
-        /* Adjust the width of each product card for smaller screens */
-        margin: 10px;
+        width: 48%;
+        /* Adjust width to show more products */
+        margin: 10px 1%;
+        /* Adjust margin between products */
     }
     .products .card {
         width: 100%;
