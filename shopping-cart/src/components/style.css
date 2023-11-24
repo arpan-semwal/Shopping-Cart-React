@@ -108,6 +108,7 @@
 @media (max-width: 992px) {
     .filters {
         transform: translateX(-100%);
+        width: 70%;
         /* Initially move sidebar off-screen on smaller screens */
     }
 }
@@ -116,16 +117,83 @@
     .productContainer {
         width: 100%;
         padding-top: 45px;
-        justify-content: flex-start;
+        display: flex;
+        flex-direction: column;
+        margin-left: 50px;
         /* Align products to the start */
     }
     .products {
-        width: 48%;
+        width: 50%;
         /* Adjust width to show more products */
         margin: 10px 1%;
         /* Adjust margin between products */
     }
     .products .card {
         width: 100%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    .productContainer {
+        width: 90%;
+        margin: 0 auto;
+        /* Center the container */
+        padding-top: 45px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* Center items horizontally */
+    }
+    .products {
+        width: 45%;
+        /* Adjust width to show more products */
+        margin: 10px;
+    }
+    .products .card {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .productContainer {
+        width: 100%;
+        padding-top: 45px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* Center items horizontally */
+        margin: 0;
+        /* Remove any previous margin */
+    }
+    .products {
+        width: 90%;
+        margin: 10px auto;
+        /* Center the products */
+    }
+    .products .card {
+        width: 100%;
+    }
+    /* Additional styles for the sidebar or other components on smaller screens if needed */
+    .filters {
+        width: 100%;
+        /* Adjust the sidebar to cover the full width */
+        left: 0;
+        /* Align the sidebar to the left */
+        top: 0;
+        /* Adjust top positioning if necessary */
+        height: 100%;
+        /* Extend the sidebar to full height */
+        overflow-y: auto;
+        /* Enable vertical scrolling */
+        transform: translateX(-100%);
+        /* Move sidebar off-screen initially */
+        transition: transform 0.6s ease-in-out;
+        /* Transition effect for sidebar */
+        z-index: 2;
+        /* Ensure the sidebar is above other content */
+    }
+    .filters.open {
+        transform: translateX(0);
+        /* Move sidebar in when open */
     }
 }
