@@ -33,19 +33,13 @@ const Home = () => {
       sortedProducts = sortedProducts.filter(
         (prod) => prod.ratings === byRating
       );
-
-
-
     }
-
     if(searchQuery){
       sortedProducts = sortedProducts.filter((prod) => prod.name.toLowerCase().includes(searchQuery));
     }
 
     return sortedProducts;
   }
-
-
   return (
     <div>
      
