@@ -2,7 +2,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/esm/Button';
 import Rating from './Rating';
 import { CartState } from './contextApi/Context';
-const Filters = () => {
+const Filters = ({isOpen}) => {
   
   const {productState:{byStock , byFastDelivery , sort , byRating , searchQuery } , productDispatch} =  CartState ();
 
@@ -11,7 +11,8 @@ const Filters = () => {
 
   return (
     
-    <div className="filters">
+    
+    <div className={`filters ${isOpen ?"open" : ""}`}>
       <span className="title">Filter Products</span>
       <span>
         <Form.Check

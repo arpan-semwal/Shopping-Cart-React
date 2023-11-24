@@ -1,6 +1,7 @@
 import Filters from "./Filters";
 import SingleProduct from "./SingleProduct";
-import { CartState } from "./contextApi/Context"
+import { CartState } from "./contextApi/Context";
+
 import Header from "./Header";
 import "./style.css";
 
@@ -49,7 +50,9 @@ const Home = () => {
     <div>
      
       <div className="home">
-        <Filters />
+      
+       <Header/> 
+        {/* <Filters /> */}
         <div className="productContainer">
           {transformProducts().map((prod) => (
             <SingleProduct prod={prod} key={prod.id} />

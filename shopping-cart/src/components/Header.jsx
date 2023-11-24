@@ -1,15 +1,16 @@
-import React from 'react';
 import { AiFillDelete } from 'react-icons/ai';
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import Form from 'react-bootstrap/Form';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { BsFillCartFill } from 'react-icons/bs';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { CartState } from './contextApi/Context';
 import Badge from 'react-bootstrap/Badge';
 import Button from 'react-bootstrap/Button';
-
+import { MdOutlineMenu } from "react-icons/md";
+import Filters from './Filters';
+import { useState } from 'react';
 const Header = () => {
   const { state: { cart }, dispatch, productDispatch, searchQuery } = CartState();
 
@@ -20,11 +21,27 @@ const Header = () => {
     });
   };
 
+ 
+
+  const [openSideBar , setOpenSideBar] = useState(false);
+
+  const handleSideBar =  () => {
+    setOpenSideBar(!openSideBar)
+  }
+
   return (
     <div>
+      
       <Navbar bg="dark" variant="dark" expand="lg" fixed="top">
         <Container>
           <Navbar.Brand>
+          <MdOutlineMenu
+              fontSize="40px"
+              fontFamily="bold"
+              style={{ color: 'yellow', cursor: 'pointer' }}
+              onClick={handleSideBar}
+            />
+          <Filters isOpen={openSideBar} />
             <Link to="/">Shopping Cart</Link>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
