@@ -1,7 +1,5 @@
-import Filters from "./Filters";
 import SingleProduct from "./SingleProduct";
 import { CartState } from "./contextApi/Context";
-
 import Header from "./Header";
 import "./style.css";
 
@@ -9,7 +7,6 @@ const Home = () => {
 
   const {state : {products} , productState : {sort , byFastDelivery , byRating , searchQuery , byStock}} = CartState();
   
-
   //changing the products accoring to the filters
   const transformProducts = () => {
     let sortedProducts = products;
@@ -40,11 +37,11 @@ const Home = () => {
 
     return sortedProducts;
   }
+
+
   return (
     <div>
-     
       <div className="home">
-      
        <Header/> 
         {/* <Filters /> */}
         <div className="productContainer">

@@ -42,6 +42,7 @@ const Header = () => {
               fontFamily="bold"
               style={{ color: 'yellow', cursor: 'pointer' }}
               onClick={handleSideBar}
+              
             />
             <Link to="/">Shopping Cart</Link>
           </Navbar.Brand>
@@ -60,7 +61,7 @@ const Header = () => {
                 }}
               />
             </Form>
-            <Dropdown align="right">
+            <Dropdown align="left">
               <Dropdown.Toggle variant="success" id="dropdown-basic">
                 <BsFillCartFill color="white" fontSize="20fpx" />
                 <Badge>{cart.length}</Badge>
