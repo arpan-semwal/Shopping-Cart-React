@@ -11,6 +11,7 @@ import Button from 'react-bootstrap/Button';
 import { MdOutlineMenu } from "react-icons/md";
 import Filters from './Filters';
 import { useState } from 'react';
+import "./style.css";
 
 
 

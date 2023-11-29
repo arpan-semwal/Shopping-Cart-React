@@ -4,8 +4,13 @@
  import Ratings from "../components/Rating.jsx"; 
  import Form from 'react-bootstrap/Form';
  import { AiFillDelete } from "react-icons/ai";
- 
+ import Header from "./Header.jsx"
+ import "./style.css";
 const Cart = () => {
+
+  const handle = () => {
+    alert("Thanks for the purchase");
+  }
 
    const {
     state:{cart},
@@ -28,6 +33,7 @@ const Cart = () => {
 
   return (
     <div className="home">
+      <Header/>
       <div className="productContainer">
       <ListGroup>
        {
@@ -50,6 +56,8 @@ const Cart = () => {
               <Ratings rating={prod.ratings}/>
             </Col>
 
+           
+
             <Col md={2}>
               <Form.Control 
                 as="select" 
@@ -62,9 +70,7 @@ const Cart = () => {
                     qty:e.target.value,
                   }
                 })
-                }
-              
-              
+                }              
               >
                   {[...Array(prod.inStock).keys()].map((x) => (
                     <option key={x+1} > {x+1}</option>
@@ -80,24 +86,29 @@ const Cart = () => {
                     />
             </Col>
           </Row>
-          </ListGroup.Item>
-        ))
-       }
+          <Row>       
+        </Row>
+      </ListGroup.Item>
+    ))
+  }
         </ListGroup>
-      </div>
 
-      <div className="filters summary">
-        <span className="title">
-          <span className="title">Subtotal ({cart.length}) items</span> 
-         {/* { // gives us number of title} */}
-         <span style={{fontWeight:700 , fontSize:20}}>
-          Total : ₹{total}
-         </span>
+        <ListGroup >
+          <div className="addCart">
+            <span className="mainCart">
+                <span className="">Subtotal ({cart.length}) items</span> 
+          
+                  <span style={{fontWeight:700 , fontSize:20}}>
+                    Total : ₹{total}
+                  </span>
 
-         <Button type="button" disabled={cart.length === 0}>
-          Proceed to Checkout
-         </Button>
-        </span>
+                  <Button type="button" disabled={cart.length === 0} onClick={handle}>
+                    Proceed to Checkout
+                  </Button>
+              </span>
+          </div>
+            
+        </ListGroup>
       </div>
     </div>
   )
