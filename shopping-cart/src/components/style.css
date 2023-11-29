@@ -48,11 +48,36 @@
     padding-bottom: 20px;
 }
 
+@media (max-width: 767px) {
+    .filters {
+      width: 100%;
+      /* Adjust the width to occupy the full screen */
+      transform: translateX(-100%);
+      /* Initially move sidebar off-screen */
+      z-index: 3;
+      /* Ensure the sidebar is above other content */
+    }
+  
+    .filters.open {
+      transform: translateX(0);
+      /* Move sidebar in when open */
+    }
+  }
+  
+  /* For medium screens (768px to 991px) */
+  @media (min-width: 768px) and (max-width: 991px) {
+    .filters {
+      width: 60%;
+      /* Adjust the width of the sidebar for medium screens */
+    }
+  }
+
 
 /* cart item */
 
 .title {
     font-size: 30px;
+    
 }
 
 
